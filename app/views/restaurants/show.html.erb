@@ -1,8 +1,28 @@
+<% content_for(:title) do %>
+  <%= @restaurant.name %> is on Yelp
+<% end %>
 
+
+<%= content_for(:after_js) do %>
+<script>
+  $(document).ready(function(){
+    alert("<%= @restaurant.name %> is live");
+    })
+</script>
+<% end %>
+
+<% content_for(:description) do %>
+  <%= @restaurant.name %> is on Yelp
+<% end %>
+
+
+<% content_for(:og_image) do %>
+  <%= @restaurant.name %> is on Yelp
+<% end %>
 
 <h1>
   <%= @restaurant.name %>
-</h1>>
+</h1>
 
 <p>
   <strong>Address:</strong>
@@ -24,6 +44,10 @@
   <li><%= review.content %></li>
   <% end %>
 </ul>
+
+
+
+
 
 <%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
 <%= link_to 'Back', restaurants_path %>

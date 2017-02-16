@@ -1,5 +1,11 @@
 <%= simple_form_for(@restaurant) do |f| %>
-  <%= f.error_notification %>
+  <% if @restaurant.errors.any? %>
+    <ul>
+      <% @restaurant.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
 
   <div class="form-inputs">
     <%= f.input :name %>
